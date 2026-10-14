@@ -169,7 +169,7 @@ local function q(r, s, t)
     end)
 end
 
-q("สคริปต์ทุกแมพ", "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/..%E0%B8%82", "90288004469209")
+q("สคริปต์ทุกแมพ", "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AD%E0%B8%B1%E0%B8%9E%E0%B9%80%E0%B8%94%E0%B8%974", "90288004469209")
 q("ดีดคนออกแมพ", "https://raw.githubusercontent.com/dmjk2885-ship-it/GK-HUB/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B8%94%E0%B8%B5%E0%B8%94%E0%B8%84%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E", "4575171283")
 q("บูสFPS", "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/FPS", "107150024905140")
 q("Murder Mystery 2", "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/Mm2", "14260707709")
