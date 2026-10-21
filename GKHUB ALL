@@ -1,180 +1,257 @@
--- ดีใจอะดิมาเจอหน้านี้ แต่มึงดูดีๆมันไม่ใช่โค้ดเเฮกเกมไอ้ควาย
--- ฝากดิส https://discord.gg/Ugssja4wqQ
-local a = game:GetService("Players")
-local b = game:GetService("CoreGui")
-local c = a.LocalPlayer
-local d = c:FindFirstChild("PlayerGui") or c:WaitForChild("PlayerGui")
-local e = (pcall(function() return b end) and b) or d
-local f = e:FindFirstChild("GKHUB_MAP_SELECTOR")
-if f then f:Destroy() end
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:FindFirstChild("PlayerGui") or LocalPlayer:WaitForChild("PlayerGui")
+local TargetParent = (pcall(function() return CoreGui end) and CoreGui) or PlayerGui
 
-local g = Instance.new("ScreenGui")
-g.Name = "GKHUB_MAP_SELECTOR"
-g.ResetOnSpawn = false
-g.IgnoreGuiInset = true
-g.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-g.Parent = e
+local ExistingUI = TargetParent:FindFirstChild("GKHUB_MAP_SELECTOR")
+if ExistingUI then ExistingUI:Destroy() end
 
-local h = Instance.new("Frame")
-h.Size = UDim2.fromOffset(330, 230)
-h.AnchorPoint = Vector2.new(0.5, 0.5)
-h.Position = UDim2.fromScale(0.5, 0.5)
-h.BackgroundColor3 = Color3.fromRGB(12, 14, 20)
-h.BorderSizePixel = 0
-h.Parent = g
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "GKHUB_MAP_SELECTOR"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = TargetParent
 
-local i = Instance.new("UICorner")
-i.CornerRadius = UDim.new(0, 10)
-i.Parent = h
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.fromOffset(480, 320)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.fromScale(0.5, 0.5)
+MainFrame.BackgroundColor3 = Color3.fromRGB(15, 18, 26)
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
 
-local j = Instance.new("UIStroke")
-j.Color = Color3.fromRGB(45, 110, 200)
-j.Transparency = 0.3
-j.Thickness = 1.5
-j.Parent = h
+local MainCorner = Instance.new("UICorner")
+MainCorner.CornerRadius = UDim.new(0, 10)
+MainCorner.Parent = MainFrame
 
-local k = Instance.new("TextLabel")
-k.Size = UDim2.new(1, -30, 0, 35)
-k.Position = UDim2.fromOffset(12, 2)
-k.BackgroundTransparency = 1
-k.Text = "GKHUB --> https://discord.gg/Ugssja4wqQ"
-k.TextColor3 = Color3.fromRGB(80, 180, 255)
-k.TextSize = 14
-k.Font = Enum.Font.GothamBold
-k.TextXAlignment = Enum.TextXAlignment.Left
-k.Parent = h
+local MainStroke = Instance.new("UIStroke")
+MainStroke.Color = Color3.fromRGB(35, 100, 210)
+MainStroke.Transparency = 0.2
+MainStroke.Thickness = 1.5
+MainStroke.Parent = MainFrame
 
-local l = Instance.new("TextButton")
-l.Size = UDim2.fromOffset(24, 24)
-l.AnchorPoint = Vector2.new(1, 0)
-l.Position = UDim2.new(1, -8, 0, 6)
-l.BackgroundColor3 = Color3.fromRGB(20, 25, 35)
-l.BorderSizePixel = 0
-l.Text = "X"
-l.TextColor3 = Color3.fromRGB(180, 200, 220)
-l.TextSize = 10
-l.Font = Enum.Font.GothamBold
-l.Parent = h
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Size = UDim2.new(1, -50, 0, 36)
+TitleLabel.Position = UDim2.fromOffset(14, 2)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "GK HUB  |  https://discord.gg/Ugssja4wqQ"
+TitleLabel.TextColor3 = Color3.fromRGB(100, 200, 255)
+TitleLabel.TextSize = 13
+TitleLabel.Font = Enum.Font.GothamBold
+TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+TitleLabel.Parent = MainFrame
 
-local m = Instance.new("UICorner")
-m.CornerRadius = UDim.new(0, 6)
-m.Parent = l
+local CloseBtn = Instance.new("TextButton")
+CloseBtn.Size = UDim2.fromOffset(26, 26)
+CloseBtn.AnchorPoint = Vector2.new(1, 0)
+CloseBtn.Position = UDim2.new(1, -8, 0, 6)
+CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 35, 50)
+CloseBtn.BorderSizePixel = 0
+CloseBtn.Text = "✕"
+CloseBtn.TextColor3 = Color3.fromRGB(200, 220, 240)
+CloseBtn.TextSize = 12
+CloseBtn.Font = Enum.Font.GothamBold
+CloseBtn.Parent = MainFrame
 
-l.MouseButton1Click:Connect(function()
-    g:Destroy()
+local CloseCorner = Instance.new("UICorner")
+CloseCorner.CornerRadius = UDim.new(0, 6)
+CloseCorner.Parent = CloseBtn
+
+CloseBtn.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
 end)
 
-local n = Instance.new("Frame")
-n.Size = UDim2.new(1, 0, 0, 1)
-n.Position = UDim2.fromOffset(0, 36)
-n.BackgroundColor3 = Color3.fromRGB(25, 45, 75)
-n.BorderSizePixel = 0
-n.Parent = h
+local Line = Instance.new("Frame")
+Line.Size = UDim2.new(1, 0, 0, 1)
+Line.Position = UDim2.fromOffset(0, 38)
+Line.BackgroundColor3 = Color3.fromRGB(30, 50, 85)
+Line.BorderSizePixel = 0
+Line.Parent = MainFrame
 
-local o = Instance.new("ScrollingFrame")
-o.Size = UDim2.new(1, -16, 1, -44)
-o.Position = UDim2.fromOffset(8, 40)
-o.BackgroundTransparency = 1
-o.BorderSizePixel = 0
-o.CanvasSize = UDim2.new(0, 0, 0, 0)
-o.ScrollBarThickness = 3
-o.Parent = h
+local TabContainer = Instance.new("Frame")
+TabContainer.Size = UDim2.new(1, -20, 0, 30)
+TabContainer.Position = UDim2.fromOffset(10, 46)
+TabContainer.BackgroundTransparency = 1
+TabContainer.Parent = MainFrame
 
-local p = Instance.new("UIGridLayout")
-p.CellSize = UDim2.fromOffset(148, 110)
-p.CellPadding = UDim2.fromOffset(8, 8)
-p.Parent = o
+local TabListLayout = Instance.new("UIListLayout")
+TabListLayout.FillDirection = Enum.FillDirection.Horizontal
+TabListLayout.Padding = UDim.new(0, 8)
+TabListLayout.Parent = TabContainer
 
-p:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-    o.CanvasSize = UDim2.new(0, 0, 0, p.AbsoluteContentSize.Y + 10)
-end)
+local ContentContainer = Instance.new("Frame")
+ContentContainer.Size = UDim2.new(1, -20, 1, -92)
+ContentContainer.Position = UDim2.fromOffset(10, 82)
+ContentContainer.BackgroundTransparency = 1
+ContentContainer.Parent = MainFrame
 
-local function q(r, s, t)
-    local u = Instance.new("Frame")
-    u.BackgroundColor3 = Color3.fromRGB(18, 22, 32)
-    u.BorderSizePixel = 0
-    u.Parent = o
-    
-    local v = Instance.new("UICorner")
-    v.CornerRadius = UDim.new(0, 8)
-    v.Parent = u
-    
-    local w = Instance.new("UIStroke")
-    w.Color = Color3.fromRGB(35, 60, 100)
-    w.Transparency = 0.5
-    w.Parent = u
+local ScriptCategories = {
+    {
+        Name = "สคริปต์เฉพาะแมพ",
+        Scripts = {
+            { Title = "Murder Mystery 2", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/Mm2", ImageId = "14260707709" },
+            { Title = "The Strongest Battlegrounds", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9ETSB", ImageId = "100753048194976" },
+            { Title = "Build a Boat", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD", ImageId = "11981759994" },
+            { Title = "เเมพ M VS D", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Gghhgg/refs/heads/main/MVSD", ImageId = "18350501342" },
+            { Title = "สคริปต์ชีวิตคุก", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95", ImageId = "122728613872558" }
+        }
+    },
+    {
+        Name = "สคริปต์เสริม / ทั่วไป",
+        Scripts = {
+            { Title = "สคริปต์ทุกแมพ", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AD%E0%B8%B1%E0%B8%9E%E0%B9%80%E0%B8%94%E0%B8%974", ImageId = "90288004469209" },
+            { Title = "ดีดคนออกแมพ", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GK-HUB/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B8%94%E0%B8%B5%E0%B8%94%E0%B8%84%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E", ImageId = "4575171283" },
+            { Title = "บูส FPS", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/FPS", ImageId = "107150024905140" },
+            { Title = "หาเซิร์ฟคนน้อย", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lll/refs/heads/main/%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2", ImageId = "109525984459417" }
+        }
+    }
+}
 
-    local x = Instance.new("ImageLabel")
-    x.Size = UDim2.new(1, -8, 0, 48)
-    x.Position = UDim2.fromOffset(4, 4)
-    x.BackgroundColor3 = Color3.fromRGB(25, 30, 42)
-    x.BorderSizePixel = 0
-    x.Image = t ~= "" and ("rbxassetid://" .. tostring(t)) or ""
-    x.Parent = u
-    
-    local y = Instance.new("UICorner")
-    y.CornerRadius = UDim.new(0, 6)
-    y.Parent = x
+local ActiveTabBtn = nil
+local ActiveScrollFrame = nil
 
-    local z = Instance.new("TextLabel")
-    z.Size = UDim2.new(1, -6, 0, 22)
-    z.Position = UDim2.fromOffset(3, 54)
-    z.BackgroundTransparency = 1
-    z.Text = r
-    z.TextColor3 = Color3.fromRGB(230, 235, 245)
-    z.TextSize = 11
-    z.Font = Enum.Font.GothamMedium
-    z.TextTruncate = Enum.TextTruncate.AtEnd
-    z.Parent = u
-    
-    local aa = Instance.new("TextButton")
-    aa.Size = UDim2.new(1, -10, 0, 26)
-    aa.AnchorPoint = Vector2.new(0.5, 1)
-    aa.Position = UDim2.new(0.5, 0, 1, -4)
-    aa.BackgroundColor3 = Color3.fromRGB(25, 50, 85)
-    aa.BorderSizePixel = 0
-    aa.Text = "รัน"
-    aa.TextColor3 = Color3.fromRGB(120, 210, 255)
-    aa.TextSize = 12
-    aa.Font = Enum.Font.GothamBold
-    aa.AutoButtonColor = false
-    aa.Parent = u
-    
-    local ab = Instance.new("UICorner")
-    ab.CornerRadius = UDim.new(0, 5)
-    ab.Parent = aa
-    
-    aa.MouseButton1Click:Connect(function()
-        aa.Text = "กำลังรัน..."
+local function CreateScriptCard(parent, title, scriptUrl, imageId)
+    local Card = Instance.new("Frame")
+    Card.BackgroundColor3 = Color3.fromRGB(22, 27, 38)
+    Card.BorderSizePixel = 0
+    Card.Parent = parent
+
+    local CardCorner = Instance.new("UICorner")
+    CardCorner.CornerRadius = UDim.new(0, 8)
+    CardCorner.Parent = Card
+
+    local CardStroke = Instance.new("UIStroke")
+    CardStroke.Color = Color3.fromRGB(40, 70, 115)
+    CardStroke.Transparency = 0.6
+    CardStroke.Parent = Card
+
+    local Icon = Instance.new("ImageLabel")
+    Icon.Size = UDim2.new(0, 42, 0, 42)
+    Icon.Position = UDim2.fromOffset(8, 8)
+    Icon.BackgroundColor3 = Color3.fromRGB(30, 36, 50)
+    Icon.BorderSizePixel = 0
+    Icon.Image = (imageId and imageId ~= "") and ("rbxassetid://" .. tostring(imageId)) or ""
+    Icon.Parent = Card
+
+    local IconCorner = Instance.new("UICorner")
+    IconCorner.CornerRadius = UDim.new(0, 6)
+    IconCorner.Parent = Icon
+
+    local ScriptName = Instance.new("TextLabel")
+    ScriptName.Size = UDim2.new(1, -60, 0, 20)
+    ScriptName.Position = UDim2.fromOffset(56, 8)
+    ScriptName.BackgroundTransparency = 1
+    ScriptName.Text = title
+    ScriptName.TextColor3 = Color3.fromRGB(235, 240, 250)
+    ScriptName.TextSize = 11
+    ScriptName.Font = Enum.Font.GothamMedium
+    ScriptName.TextTruncate = Enum.TextTruncate.AtEnd
+    ScriptName.TextXAlignment = Enum.TextXAlignment.Left
+    ScriptName.Parent = Card
+
+    local RunBtn = Instance.new("TextButton")
+    RunBtn.Size = UDim2.new(1, -60, 0, 22)
+    RunBtn.Position = UDim2.fromOffset(56, 28)
+    RunBtn.BackgroundColor3 = Color3.fromRGB(30, 85, 160)
+    RunBtn.BorderSizePixel = 0
+    RunBtn.Text = "▶ รันสคริปต์"
+    RunBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    RunBtn.TextSize = 10
+    RunBtn.Font = Enum.Font.GothamBold
+    RunBtn.AutoButtonColor = false
+    RunBtn.Parent = Card
+
+    local RunCorner = Instance.new("UICorner")
+    RunCorner.CornerRadius = UDim.new(0, 5)
+    RunCorner.Parent = RunBtn
+
+    RunBtn.MouseButton1Click:Connect(function()
+        RunBtn.Text = "กำลังรัน..."
+        RunBtn.BackgroundColor3 = Color3.fromRGB(200, 140, 30)
+        
         task.spawn(function()
-            local ac, ad = pcall(function()
-                local ae = game:HttpGet(s)
-                if not ae or ae == "" then
-                    error("Empty response from HttpGet")
-                end
-                local af, ag = loadstring(ae)
-                if not af then
-                    error("Loadstring error: " .. tostring(ag))
-                end
-                af()
+            local success, err = pcall(function()
+                local code = game:HttpGet(scriptUrl)
+                if not code or code == "" then error("ดาวน์โหลดโค้ดล้มเหลว") end
+                local func, loadErr = loadstring(code)
+                if not func then error(loadErr) end
+                func()
             end)
-            
-            if ac then
-                g:Destroy()
+
+            if success then
+                RunBtn.Text = "✔ สำเร็จ"
+                RunBtn.BackgroundColor3 = Color3.fromRGB(40, 160, 80)
+                task.wait(0.8)
+                ScreenGui:Destroy()
             else
-                aa.Text = "Error"
-                warn("[GKHUB] Failed to run " .. r .. ": " .. tostring(ad))
+                RunBtn.Text = "✖ ข้อผิดพลาด"
+                RunBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+                warn("[GK HUB Error]: " .. tostring(err))
+                task.wait(1.5)
+                RunBtn.Text = "▶ รันสคริปต์"
+                RunBtn.BackgroundColor3 = Color3.fromRGB(30, 85, 160)
             end
         end)
     end)
 end
 
-q("สคริปต์ทุกแมพ", "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AD%E0%B8%B1%E0%B8%9E%E0%B9%80%E0%B8%94%E0%B8%974", "90288004469209")
-q("ดีดคนออกแมพ", "https://raw.githubusercontent.com/dmjk2885-ship-it/GK-HUB/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B8%94%E0%B8%B5%E0%B8%94%E0%B8%84%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E", "4575171283")
-q("บูสFPS", "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/FPS", "107150024905140")
-q("Murder Mystery 2", "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/Mm2", "14260707709")
-q("The Strongest Battlegrounds", "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9ETSB", "100753048194976")
-q("Build a Boat", "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD", "11981759994")
-q("หาเซิร์ฟคนน้อย", "https://raw.githubusercontent.com/dmjk2885-ship-it/Lll/refs/heads/main/%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2", "109525984459417")
-q("เเมพM VS D", "https://raw.githubusercontent.com/dmjk2885-ship-it/Gghhgg/refs/heads/main/MVSD", "18350501342")
-q("สคริปเเมพ ชีวิตคุก", "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95", "134570562559251")
+for index, catData in ipairs(ScriptCategories) do
+    local ScrollFrame = Instance.new("ScrollingFrame")
+    ScrollFrame.Size = UDim2.fromScale(1, 1)
+    ScrollFrame.BackgroundTransparency = 1
+    ScrollFrame.BorderSizePixel = 0
+    ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+    ScrollFrame.ScrollBarThickness = 4
+    ScrollFrame.ScrollBarImageColor3 = Color3.fromRGB(45, 110, 200)
+    ScrollFrame.Visible = (index == 1)
+    ScrollFrame.Parent = ContentContainer
+
+    local GridLayout = Instance.new("UIGridLayout")
+    GridLayout.CellSize = UDim2.fromOffset(220, 58)
+    GridLayout.CellPadding = UDim2.fromOffset(8, 8)
+    GridLayout.Parent = ScrollFrame
+
+    GridLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, GridLayout.AbsoluteContentSize.Y + 10)
+    end)
+
+    for _, scriptInfo in ipairs(catData.Scripts) do
+        CreateScriptCard(ScrollFrame, scriptInfo.Title, scriptInfo.Url, scriptInfo.ImageId)
+    end
+
+    local TabBtn = Instance.new("TextButton")
+    TabBtn.Size = UDim2.fromOffset(130, 30)
+    TabBtn.BackgroundColor3 = (index == 1) and Color3.fromRGB(30, 75, 140) or Color3.fromRGB(22, 27, 38)
+    TabBtn.BorderSizePixel = 0
+    TabBtn.Text = catData.Name
+    TabBtn.TextColor3 = (index == 1) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(150, 170, 190)
+    TabBtn.TextSize = 11
+    TabBtn.Font = Enum.Font.GothamBold
+    TabBtn.Parent = TabContainer
+
+    local TabBtnCorner = Instance.new("UICorner")
+    TabBtnCorner.CornerRadius = UDim.new(0, 6)
+    TabBtnCorner.Parent = TabBtn
+
+    if index == 1 then
+        ActiveTabBtn = TabBtn
+        ActiveScrollFrame = ScrollFrame
+    end
+
+    TabBtn.MouseButton1Click:Connect(function()
+        if ActiveTabBtn and ActiveScrollFrame then
+            ActiveTabBtn.BackgroundColor3 = Color3.fromRGB(22, 27, 38)
+            ActiveTabBtn.TextColor3 = Color3.fromRGB(150, 170, 190)
+            ActiveScrollFrame.Visible = false
+        end
+
+        TabBtn.BackgroundColor3 = Color3.fromRGB(30, 75, 140)
+        TabBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        ScrollFrame.Visible = true
+
+        ActiveTabBtn = TabBtn
+        ActiveScrollFrame = ScrollFrame
+    end)
+end
