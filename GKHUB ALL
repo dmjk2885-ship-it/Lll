@@ -96,16 +96,18 @@ local ScriptCategories = {
             { Title = "Build a Boat", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD", ImageId = "11981759994" },
             { Title = "เเมพ M VS D", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Gghhgg/refs/heads/main/MVSD", ImageId = "18350501342" },
             { Title = "สคริปต์ชีวิตคุก", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95", ImageId = "122728613872558" },
-            { Title = "สคริปต์ขโมยไข่", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/EGG", ImageId = "84198218197335" }
+            { Title = "สคริปต์ขโมยไข่", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/EGG", ImageId = "84198218197335" },
+{Title = "เขตความรุนเเรง", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/%E0%B9%80%E0%B8%82%E0%B8%95", ImageId = "12" }
         }
     },
     {
-        Name = "สคริปต์เสริม / ทั่วไป",
+        Name = "สคริปเเยกของดี",
         Scripts = {
             { Title = "สคริปต์ทุกแมพ", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/He-oo/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AD%E0%B8%B1%E0%B8%9E%E0%B9%80%E0%B8%94%E0%B8%974", ImageId = "90288004469209" },
             { Title = "ดีดคนออกแมพ", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GK-HUB/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B8%94%E0%B8%B5%E0%B8%94%E0%B8%84%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E", ImageId = "4575171283" },
             { Title = "บูส FPS", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lolppp/refs/heads/main/FPS", ImageId = "107150024905140" },
-            { Title = "หาเซิร์ฟคนน้อย", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lll/refs/heads/main/%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2", ImageId = "109525984459417" }
+            { Title = "หาเซิร์ฟคนน้อย", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Lll/refs/heads/main/%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2", ImageId = "109525984459417" },
+
         }
     }
 }
