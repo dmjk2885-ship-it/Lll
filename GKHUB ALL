@@ -91,7 +91,7 @@ local ScriptCategories = {
     {
         Name = "สคริปต์เฉพาะแมพ",
         Scripts = {
-            { Title = "Murder Mystery 2", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/Mm2", ImageId = "14260707709" },
+            { Title = "Murder Mystery 2", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Yiyifi/refs/heads/main/MM2%20-1", ImageId = "14260707709" },
             { Title = "The Strongest Battlegrounds", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B8%AA%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9ETSB", ImageId = "100753048194976" },
             { Title = "Build a Boat", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/GKHUB-/refs/heads/main/%E0%B9%80%E0%B9%80%E0%B8%A1%E0%B8%9E%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD", ImageId = "11981759994" },
             { Title = "เเมพ M VS D", Url = "https://raw.githubusercontent.com/dmjk2885-ship-it/Gghhgg/refs/heads/main/MVSD", ImageId = "18350501342" },
